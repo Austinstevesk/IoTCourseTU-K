@@ -1,6 +1,7 @@
 int led = 4;
 float sinVal;
 int toneVal;
+int val; //Photoelectric diode value
 unsigned long tepTimer;
 
 void setup() {
@@ -12,12 +13,13 @@ Serial.begin(9600);
 
 void loop() {
   // put your main code here, to run repeatedly:
+  val = analogRead(0); //From analog pin 0
   int val;
   double data;
   val = analogRead(0);
   data = (double)val*(5/10.24); //Convert voltage to temperature value
 
-  if(data>25){
+  if(data>25 && val > 500){
     digitalWrite(led, HIGH);
    
     for(int x = 0; x<180; x++){
@@ -37,6 +39,9 @@ void loop() {
     Serial.print("Temp: ");
     Serial.print(data);
     Serial.println("C");
+    Serial.print("Light intensity ");
+    Serial.println(val); //Prints light intensity value
+    
   }
 
 }
