@@ -12,12 +12,12 @@ void loop() {
   digitalWrite(3, LOW);
   digitalWrite(4, LOW);
   digitalWrite(6, HIGH);
-
+  delay(1000);
 
   digitalWrite(3, HIGH);
   digitalWrite(4, LOW);
   digitalWrite(6, LOW);
-
+  delay(1000);
 
   digitalWrite(3, LOW);
   digitalWrite(4, HIGH);
