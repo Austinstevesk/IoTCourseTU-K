@@ -5,6 +5,8 @@ pot = MCP3008(0)
 led = PWMLED(17)
 
 while True:
+   print(pot.value)
+   print("-------")
    if (pot.value < 0.002):
       led.value = 0
    else:
